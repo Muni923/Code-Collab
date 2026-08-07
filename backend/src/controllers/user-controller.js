@@ -28,6 +28,13 @@ const signup = async (req, res) => {
             email,
             password: hashedPassword
         });
+        const token = await genToken(user);
+
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: "None",
+        });
 
         return res.status(201).json({
             success: true,
@@ -49,7 +56,7 @@ const signin = async (req, res) => {
             return res.status(400).json({
                 success: false,
                 message: "Input all credentials"
-            })
+            });
         }
         const existingUser = await User.findOne({ email });
 
@@ -79,7 +86,7 @@ const signin = async (req, res) => {
         return res.status(201).json({
             success: true,
             message: "Login successful"
-        })
+        });
 
     }
     catch (err) {
