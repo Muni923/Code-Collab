@@ -38,11 +38,11 @@ function Signup() {
   }
   return (
 
-    <div className="min-h-screen flex justify-center items-center bg-gray-100"
+    <div className="flex justify-center items-center bg-gray-100 min-h-screen w-full bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${bgImage})` }}>
       <div className="bg-white p-8 rounded-xl shadow-xl w-96">
         <h1 className="text-3xl font-bold text-center text-blue-700 mb-6">
-          Code Collab
+          SignUp
         </h1>
 
         <form className="flex flex-col gap-4"
