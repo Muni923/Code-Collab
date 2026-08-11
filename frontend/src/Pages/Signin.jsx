@@ -11,7 +11,7 @@ function Signin() {
 
         event.preventDefault();
         try {
-            const res = await axios.post("https://code-collab-cafi.onrender.com/user/signin",
+            const res = await axios.post("http://localhost:5000/user/signin",
                 {
                     email,
                     password,
@@ -88,7 +88,7 @@ function Signin() {
                 </div>
             </div>
         </div>
-      
+
     );
 }
 

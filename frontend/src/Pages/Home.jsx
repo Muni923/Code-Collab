@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import { socket } from "../socket";
+import { socket } from "../Connections/socket";
 import Editor from "@monaco-editor/react";
 
 function Home() {
@@ -105,7 +105,7 @@ function Home() {
   const leaveRoom = async () => {
     try {
       const res = await axios.post(
-        "https://code-collab-cafi.onrender.com/room/leave",
+        "http://localhost:5000/room/leave",
         { roomid },
         {
           withCredentials: true,

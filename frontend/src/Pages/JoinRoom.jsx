@@ -19,7 +19,7 @@ function JoinRoom() {
 
         try {
             const res = await axios.post(
-                "https://code-collab-cafi.onrender.com/room/join",
+                "http://localhost:5000/room/join",
                 {
                     roomname,
                     roomid

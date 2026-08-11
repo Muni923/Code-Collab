@@ -1,7 +1,7 @@
 import { io } from "socket.io-client";
 
 export const socket = io(
-  "https://code-collab-cafi.onrender.com",
+  "http://localhost:5000",
   {
     withCredentials: true,
   }
