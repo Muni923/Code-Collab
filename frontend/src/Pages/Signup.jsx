@@ -12,7 +12,7 @@ function Signup() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const req = await axios.post("http://localhost:5000/user/signup",
+      const req = await axios.post("https://code-collab-cafi.onrender.com/user/signup",
         {
           username,
           email,

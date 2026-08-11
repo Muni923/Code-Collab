@@ -18,7 +18,7 @@ function CreateRoom() {
 
         try {
             const res = await axios.post(
-                "http://localhost:5000/room/create",
+                "https://code-collab-cafi.onrender.com/room/create",
                 {
                     roomname
                 },

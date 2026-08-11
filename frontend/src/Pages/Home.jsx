@@ -105,7 +105,7 @@ function Home() {
   const leaveRoom = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:5000/room/leave",
+        "https://code-collab-cafi.onrender.com/room/leave",
         { roomid },
         {
           withCredentials: true,

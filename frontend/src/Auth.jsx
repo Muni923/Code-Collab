@@ -10,7 +10,7 @@ function Auth({ children }) {
         const checkAuth = async () => {
             try {
                 const res = await axios.get(
-                    "http://localhost:5000/user/auth",
+                    "https://code-collab-cafi.onrender.com/user/auth",
                     {
                         withCredentials: true,
                     }
