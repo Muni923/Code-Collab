@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import { socket } from "../socket";
+import { socket } from "../Connections/socket";
 import Editor from "@monaco-editor/react";
 
 function Home() {
@@ -18,7 +18,7 @@ function Home() {
     const getMembers = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/room/${roomid}`,
+          `https://code-collab-editor.onrender.com/room/${roomid}`,
           {
             withCredentials: true,
           }
@@ -81,16 +81,16 @@ function Home() {
     };
   }, []);
 
-  const handleCodeChange = (e) => {
-    const newCode = e.target.value;
+  const handleCodeChange = (value) => {
+    const newCode = value || "";
 
     setCode(newCode);
 
     socket.emit("code-change", {
-      roomid,
-      code: newCode,
+        roomid,
+        code: newCode,
     });
-  };
+};
 
   const copyRoomId = async () => {
     await navigator.clipboard.writeText(roomid);
@@ -105,7 +105,7 @@ function Home() {
   const leaveRoom = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:5000/room/leave",
+        "https://code-collab-editor.onrender.com/room/leave",
         { roomid },
         {
           withCredentials: true,
@@ -316,7 +316,6 @@ function Home() {
 
             <div className="flex flex-wrap items-center gap-4 sm:gap-6">
 
-              {/* ROOM NAME */}
               <div className="min-w-0">
 
                 <p className="text-xs uppercase tracking-widest text-violet-400 font-semibold mb-1">
