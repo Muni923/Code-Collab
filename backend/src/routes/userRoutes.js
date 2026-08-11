@@ -5,11 +5,7 @@ const auth = require('../middlewares/auth')
 Router.post('/signup', signup);
 Router.post('/signin', signin);
 Router.get('/logout', logout);
-Router.get("/auth", (req, res) => {
-  res.json({
-    success: true,
-    message: "AUTH ROUTE WORKING"
-  });
-});
+Router.get("/auth", auth);
+
 
 module.exports = Router

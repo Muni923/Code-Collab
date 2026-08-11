@@ -5,7 +5,7 @@ import CreateRoom from "./Pages/CreateRoom";
 import JoinRoom from "./Pages/JoinRoom";
 import Home from "./Pages/Home";
 import { Route, Routes, BrowserRouter, Navigate } from "react-router-dom";
-import Auth from "./Auth";
+// import Auth from "./Auth";
 
 function App() {
   return (
@@ -31,27 +31,27 @@ function App() {
         <Route
           path="/home/:roomid/:roomname/:username"
           element={
-            <Auth>
-              <Home />
-            </Auth>
+
+            <Home />
+
           }
         />
 
         <Route
           path="/create"
           element={
-            <Auth>
-              <CreateRoom />
-            </Auth>
+
+            <CreateRoom />
+
           }
         />
 
         <Route
           path="/join"
           element={
-            <Auth>
-              <JoinRoom />
-            </Auth>
+
+            <JoinRoom />
+
           }
         />
 

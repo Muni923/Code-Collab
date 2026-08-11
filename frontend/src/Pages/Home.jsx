@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import { socket } from "../Connections/socket";
+import { socket } from "../socket";
 import Editor from "@monaco-editor/react";
 
 function Home() {
@@ -18,7 +18,7 @@ function Home() {
     const getMembers = async () => {
       try {
         const res = await axios.get(
-          `https://code-collab-editor.onrender.com/room/${roomid}`,
+          `https://code-collab-cafi.onrender.com/room/${roomid}`,
           {
             withCredentials: true,
           }
@@ -87,10 +87,10 @@ function Home() {
     setCode(newCode);
 
     socket.emit("code-change", {
-        roomid,
-        code: newCode,
+      roomid,
+      code: newCode,
     });
-};
+  };
 
   const copyRoomId = async () => {
     await navigator.clipboard.writeText(roomid);
@@ -105,7 +105,7 @@ function Home() {
   const leaveRoom = async () => {
     try {
       const res = await axios.post(
-        "https://code-collab-editor.onrender.com/room/leave",
+        "https://code-collab-cafi.onrender.com/room/leave",
         { roomid },
         {
           withCredentials: true,
